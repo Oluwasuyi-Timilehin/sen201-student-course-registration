@@ -29,6 +29,9 @@ class RegistrationSystem:
     def register_course(self, student, course_code):
         for course in self.courses:
             if course.code == course_code:
+                if course in student.registered_courses:
+                    print(f"{course_code} is already registered.")
+                    return
                 student.registered_courses.append(course)
                 print(f"{course.code} registered successfully.")
                 return
